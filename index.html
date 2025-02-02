@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nrshmnt.ai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars">
+        <div class="star-layer" style="transform: translateZ(-100px)">
+            <!-- Layer 1 (Back) -->
+            <script>
+                // Generate 50 small stars
+                for (let i = 0; i < 50; i++) {
+                    document.write(`<div class="star star-small" style="top: ${Math.random() * 100}%; left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 3}s"></div>`);
+                }
+            </script>
+        </div>
+        
+        <div class="star-layer" style="transform: translateZ(-50px)">
+            <!-- Layer 2 (Middle) -->
+            <script>
+                // Generate 30 medium stars
+                for (let i = 0; i < 30; i++) {
+                    document.write(`<div class="star star-medium" style="top: ${Math.random() * 100}%; left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 4}s"></div>`);
+                }
+            </script>
+        </div>
+        
+        <div class="star-layer" style="transform: translateZ(0)">
+            <!-- Layer 3 (Front) -->
+            <script>
+                // Generate 20 large stars
+                for (let i = 0; i < 20; i++) {
+                    document.write(`<div class="star star-large" style="top: ${Math.random() * 100}%; left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 5}s"></div>`);
+                }
+            </script>
+        </div>
+        
+        <!-- Shooting stars with random positions -->
+        <script>
+            // Generate 8 shooting stars with random positions and delays
+            for (let i = 0; i < 8; i++) {
+                const left = Math.random() * 80; // Random position from 0-80%
+                const delay = Math.random() * 8; // Random delay 0-8s
+                const duration = 3 + Math.random() * 2; // Random duration 3-5s
+                document.write(`<div class="shooting-star" style="left: ${left}%; animation: shooting-star ${duration}s linear infinite; animation-delay: ${delay}s"></div>`);
+            }
+        </script>
+    </div>
+    <div class="container">
+        <h1>Nrshmnt.ai</h1>
+        <div class="form-container">
+            <form id="recipeForm">
+                <div class="input-group">
+                    <label for="calories">Calories:</label>
+                    <input type="number" id="calories" name="calories" required min="0">
+                </div>
+                
+                <div class="input-group">
+                    <label for="protein">Protein (grams):</label>
+                    <input type="number" id="protein" name="protein" required min="0">
+                </div>
+                
+                <div class="input-group">
+                    <label for="cuisine">Cuisine Type:</label>
+                    <select id="cuisine" name="cuisine" required>
+                        <option value="">Select cuisine...</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="italian">Italian</option>
+                        <option value="indian">Indian</option>
+                        <option value="american">American</option>
+                        <option value="japanese">Japanese</option>
+                    </select>
+                </div>
+                
+                <div class="button-container">
+                    <button type="submit" class="generate-button">Generate Recipe</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="loadingIndicator" class="loading-container hidden">
+            <p>Generating recipe<span class="dots">...</span></p>
+        </div>
+
+        <div id="recipeResult" class="recipe-container hidden">
+            <div id="recipeContent"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
